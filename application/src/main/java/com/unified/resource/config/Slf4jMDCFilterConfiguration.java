@@ -1,4 +1,4 @@
-package com.unified.resource.datasource.app.config;
+package com.unified.resource.config;
 
 import lombok.Data;
 import org.slf4j.MDC;

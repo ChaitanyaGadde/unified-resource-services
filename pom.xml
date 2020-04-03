@@ -98,17 +98,6 @@
       <version>2.4.0-fixed</version>
     </dependency>
     <!--/Logs-->
-    <!--Rabbit-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-amqp</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.amqp</groupId>
-      <artifactId>spring-rabbit-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!--/Rabbit-->
 
     <dependency>
       <groupId>org.projectreactor</groupId>
@@ -149,5 +138,7 @@
     <module>datasource</module>
     <module>application</module>
     <module>controller</module>
+    <module>retail-collect-notify</module>
+    <module>customer-schedule-collector</module>
   </modules>
 </project>

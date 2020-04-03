@@ -1,4 +1,4 @@
-package com.unified.resource.datasource.app.config;
+package com.unified.resource.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
