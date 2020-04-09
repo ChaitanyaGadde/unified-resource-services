@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class RetailNotifier {
 
-  @PostMapping("/v1/updateRetailer")
+  @PostMapping("/v1/notifyRetailerOnOrder")
   public String getMe(
       @RequestHeader(name = "X-Environment", required = true) String environment,
       @RequestHeader(name = "X-Transaction-Id", required = true) String xTransactionId) {
