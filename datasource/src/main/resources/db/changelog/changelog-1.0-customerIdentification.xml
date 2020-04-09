@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="DivayChaitanya" id="20200409-1">
+    <createTable tableName="CUSTOMER_DETAILS">
+      <column name="CUSTOMER_ID" type="VARCHAR2(125)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="FIRST_NAME" type="VARCHAR2(200)"/>
+      <column name="LAST_NAME" type="VARCHAR2(200)"/>
+      <column name="MIDDLE_NAME" type="VARCHAR2(200)"/>
+      <column name="EMAIL_ID" type="VARCHAR2(500)" />
+      <column name="ADDRESS" type="VARCHAR2(500)" />
+      <column name="STREET1" type="VARCHAR2(200)" />
+      <column name="STREET2" type="VARCHAR2(200)" />
+      <column name="PHONE_NUMBER" type="VARCHAR2(50)" />
+      <column name="PINCODE" type="VARCHAR2(50)" />
+      <column name="CITY" type="VARCHAR2(200)" />
+      <column name="COUNTRY" type="VARCHAR2(200)" />
+      <column name="LAST_UPDATED_TIME" type="TIMESTAMP" />
+      <column name="REGISTRATION_DATE_TIME" type="TIMESTAMP" />
+    </createTable>
+  </changeSet>
+
+  <changeSet id="20200409-2" author="Marcus" dbms="h2">
+    <addPrimaryKey columnNames="TRANSACTION_ID" constraintName="TRANSACTION_ID_PK"
+                   tableName="FLOW_RUN"/>
+  </changeSet>
+
+  <changeSet id="20200409-3" author="Marcus" dbms="oracle">
+    <createIndex indexName="TRANSACTION_ID_IDX" tableName="FLOW_RUN" unique="true" >
+      <column name="TRANSACTION_ID"/>
+    </createIndex>
+    <addPrimaryKey columnNames="TRANSACTION_ID" constraintName="TRANSACTION_ID_PK" forIndexName="TRANSACTION_ID_IDX"
+                   tableName="FLOW_RUN"/>
+  </changeSet>
+</databaseChangeLog>
+
