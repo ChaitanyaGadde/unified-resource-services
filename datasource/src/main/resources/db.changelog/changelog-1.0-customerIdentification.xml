@@ -25,17 +25,9 @@
     </createTable>
   </changeSet>
 
-  <changeSet id="20200409-2" author="Marcus" dbms="h2">
-    <addPrimaryKey columnNames="TRANSACTION_ID" constraintName="TRANSACTION_ID_PK"
-                   tableName="FLOW_RUN"/>
-  </changeSet>
-
-  <changeSet id="20200409-3" author="Marcus" dbms="oracle">
-    <createIndex indexName="TRANSACTION_ID_IDX" tableName="FLOW_RUN" unique="true" >
-      <column name="TRANSACTION_ID"/>
-    </createIndex>
-    <addPrimaryKey columnNames="TRANSACTION_ID" constraintName="TRANSACTION_ID_PK" forIndexName="TRANSACTION_ID_IDX"
-                   tableName="FLOW_RUN"/>
+  <changeSet id="20200409-2" author="divya" dbms="h2">
+    <addPrimaryKey columnNames="CUSTOMER_ID" constraintName="CUSTOMER_ID_PK"
+                   tableName="CUSTOMER_ID"/>
   </changeSet>
 </databaseChangeLog>
 

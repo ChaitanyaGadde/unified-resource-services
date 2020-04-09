@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 interface CustomerRepository extends CrudRepository<CustomerModel, String> {
-  List<CustomerModel> findByStatus(String customerId);
+  List<CustomerModel> findByPhoneNumber(String phone);
 }

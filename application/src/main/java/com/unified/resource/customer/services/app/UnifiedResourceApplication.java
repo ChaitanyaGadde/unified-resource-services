@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableScheduling
 @EnableSwagger2
-@SpringBootApplication(scanBasePackages = {"com.unified.resource"}, exclude = {RabbitAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {"com.unified.resource.*"}, exclude = {RabbitAutoConfiguration.class})
 public class UnifiedResourceApplication {
 
   public static void main(String[] args) {
