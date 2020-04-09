@@ -3,7 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <name>unified-resource-services</name>
+    <description>unified-resource-services provider</description>
     <groupId>com.unified.resource</groupId>
     <artifactId>application</artifactId>
     <version>0.1.0-SNAPSHOT</version>
@@ -28,19 +29,39 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.unified.resource</groupId>
+            <artifactId>retail-collect-notify</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.unified.resource</groupId>
+            <artifactId>customer-schedule-collector</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.12</version>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>app</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+        <build>
+            <finalName>unified-resource-services</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+            <resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                    <filtering>true</filtering>
+                </resource>
+                <resource>
+                    <directory>../application/src/main/resources</directory>
+                    <filtering>true</filtering>
+                </resource>
+            </resources>
+        </build>
     
 </project>
