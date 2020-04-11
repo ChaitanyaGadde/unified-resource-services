@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface ServiceProviderRepository extends CrudRepository<ServiceProviderModel, String> {
-  List<ServiceProviderModel> findByEmailId(String email);
+interface ProvidersTypeRepository extends CrudRepository<ProvidersTypeModel, String> {
+  List<ProvidersTypeModel> findByIdAndIdentificationId(String phone, String identity);
 }
