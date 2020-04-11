@@ -27,7 +27,7 @@
 
   <changeSet id="20200409-2" author="divya" dbms="h2">
     <addPrimaryKey columnNames="CUSTOMER_ID" constraintName="CUSTOMER_ID_PK"
-                   tableName="CUSTOMER_ID"/>
+                   tableName="CUSTOMER_DETAILS"/>
   </changeSet>
 </databaseChangeLog>
 
