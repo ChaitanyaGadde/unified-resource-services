@@ -1,5 +1,6 @@
 package com.unified.resource.datasource;
 
+import com.unified.resource.datasource.dto.providerDTO;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,14 +19,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Data
 @Entity
-@Table(name = "CUSTOMER_DETAILS")
+@Table(name = "SERVICE_PROVIDERS")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerModel {
+public class ServiceProviderModel {
 
   @Id
-  @Column(name = "CUSTOMER_ID", nullable = false, length = 125)
+  @Column(name = "SERVICE_PROVIDER_ID", nullable = false, length = 125)
   private String servcieProviderId;
   @Column(name = "FIRST_NAME", nullable = false, length = 200)
   private String firstName;
@@ -49,6 +50,10 @@ public class CustomerModel {
   private String city;
   @Column(name = "COUNTRY", nullable = false, length = 200)
   private String country;
+
+  @OneToMany(mappedBy = "serviceProviderModel", cascade = CascadeType.ALL)
+  private Set<ProvidersTypeModel> providersTypeModels = new HashSet<>();
+
   @UpdateTimestamp
   @Column(name = "LAST_UPDATED_TIME")
   private LocalDateTime lastUpdateTime;

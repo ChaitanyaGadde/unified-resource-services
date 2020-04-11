@@ -29,5 +29,53 @@
     <addPrimaryKey columnNames="CUSTOMER_ID" constraintName="CUSTOMER_ID_PK"
                    tableName="CUSTOMER_DETAILS"/>
   </changeSet>
+
+  <changeSet author="DivayChaitanya" id="20200409-3">
+    <createTable tableName="SERVICE_PROVIDERS">
+      <column name="SERVICE_PROVIDER_ID" type="VARCHAR2(500)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="FIRST_NAME" type="VARCHAR2(200)"/>
+      <column name="LAST_NAME" type="VARCHAR2(200)"/>
+      <column name="MIDDLE_NAME" type="VARCHAR2(200)"/>
+      <column name="EMAIL_ID" type="VARCHAR2(500)" />
+      <column name="ADDRESS" type="VARCHAR2(500)" />
+      <column name="STREET1" type="VARCHAR2(200)" />
+      <column name="STREET2" type="VARCHAR2(200)" />
+      <column name="PHONE_NUMBER" type="VARCHAR2(50)" />
+      <column name="PINCODE" type="VARCHAR2(50)" />
+      <column name="CITY" type="VARCHAR2(200)" />
+      <column name="COUNTRY" type="VARCHAR2(200)" />
+      <column name="LAST_UPDATED_TIME" type="TIMESTAMP" />
+      <column name="REGISTRATION_DATE_TIME" type="TIMESTAMP" />
+    </createTable>
+  </changeSet>
+
+  <changeSet id="20200409-4" author="divya" dbms="h2">
+    <addPrimaryKey columnNames="SERVICE_PROVIDER_ID" constraintName="SERVICE_PROVIDER_ID_PK"
+      tableName="SERVICE_PROVIDERS"/>
+  </changeSet>
+
+  <changeSet author="DivyAChaitanya" id="20200409-1">
+    <createTable tableName="PROVIDERS_TYPE">
+      <column name="ID" type="VARCHAR2(500)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="SERVICE_PROVIDER_ID" type="VARCHAR2(200)"/>
+      <column name="PROVIDER_TYPE" type="VARCHAR2(200)"/>
+      <column name="IDENTIFICATION_TYPE" type="VARCHAR2(200)"/>
+      <column name="IDENTIFICATION_ID" type="VARCHAR2(200)"/>
+      <column name="LAST_UPDATED_TIME" type="TIMESTAMP" />
+      <column name="REGISTRATION_DATE_TIME" type="TIMESTAMP" />
+    </createTable>
+  </changeSet>
+  <changeSet author="DIVYA" id="20200403-5" dbms="h2" >
+    <addPrimaryKey columnNames="ID" constraintName="PROVIDERS_TYPE_PK"  tableName="PROVIDERS_TYPE"/>
+    <addForeignKeyConstraint baseColumnNames="SERVICE_PROVIDER_ID" baseTableName="PROVIDERS_TYPE"
+      constraintName="SERVICE_PROVIDER_ID_FK" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="SERVICE_PROVIDER_ID"
+      referencedTableName="SERVICE_PROVIDERS"/>
+  </changeSet>
+
 </databaseChangeLog>
 
