@@ -1,8 +1,12 @@
 package com.unified.resource.datasource;
 
+import static java.util.UUID.randomUUID;
+
+import com.unified.resource.datasource.dto.CustomerDTO;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +30,7 @@ public class CustomerModel {
 
   @Id
   @Column(name = "CUSTOMER_ID", nullable = false, length = 125)
-  private String servcieProviderId;
+  private String customerId;
   @Column(name = "FIRST_NAME", nullable = false, length = 200)
   private String firstName;
   @Column(name = "LAST_NAME", nullable = false, length = 200)
@@ -49,6 +53,8 @@ public class CustomerModel {
   private String city;
   @Column(name = "COUNTRY", nullable = false, length = 200)
   private String country;
+  @Column(name = "PASSWORD", nullable = false, length = 200)
+  private String password;
   @UpdateTimestamp
   @Column(name = "LAST_UPDATED_TIME")
   private LocalDateTime lastUpdateTime;
@@ -57,4 +63,22 @@ public class CustomerModel {
   @Column(name = "START_TIME", updatable = false, nullable = false)
   private LocalDateTime startTime;
 
+  static CustomerModel fromDTO(CustomerDTO customerDTO){
+    return CustomerModel.builder().
+        address(customerDTO.getAddress())
+        .firstName(customerDTO.getFirstName())
+        .lastName(customerDTO.getLastName())
+        .middleName(customerDTO.getMiddleName())
+        .emailId(customerDTO.getEmailId())
+        .address(customerDTO.getAddress())
+        .street1(customerDTO.getStreet1())
+        .street2(customerDTO.getStreet2())
+        .phoneNumber(customerDTO.getPhoneNumber())
+        .pincode(customerDTO.getPincode())
+        .city(customerDTO.getCity())
+        .country(customerDTO.getCountry())
+        .password(customerDTO.getPassword())
+        .customerId(randomUUID().toString())
+    .build();
+  }
 }
