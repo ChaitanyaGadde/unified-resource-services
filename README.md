@@ -1,8 +1,7 @@
 # Welcome to unified resources
 all in one stop
 
-For contact email divyachaitanyagadde@gmail.com or gaddechaitu2323@gmail.com
-For contact email davish 
+For contact email divyachaitanyagadde@gmail.com or gaddechaitu2323@gmail.com 
 ## Running the project locally
 ### Running locally in the IDE
 - Inspect `application.properties` 
